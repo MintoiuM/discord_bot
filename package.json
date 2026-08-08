@@ -1,0 +1,35 @@
+{
+  "name": "discord_bot",
+  "version": "1.0.0",
+  "description": "A Discord music bot with slash and prefix commands (YouTube + SoundCloud via Lavalink).",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "deploy": "node src/deploy-commands.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MintoiuM/discord_bot.git"
+  },
+  "keywords": [
+    "discord",
+    "music",
+    "lavalink",
+    "shoukaku"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MintoiuM/discord_bot/issues"
+  },
+  "homepage": "https://github.com/MintoiuM/discord_bot#readme",
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^17.4.2",
+    "shoukaku": "^4.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

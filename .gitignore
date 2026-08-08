@@ -1,0 +1,89 @@
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+credentials.json
+service-account*.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime / process managers
+pids/
+*.pid
+*.seed
+*.pid.lock
+.pm2/
+
+# Coverage / tests
+coverage/
+.nyc_output/
+*.lcov
+.jest/
+
+# Build / cache
+dist/
+build/
+out/
+.tmp/
+.temp/
+.cache/
+.npm/
+.eslintcache
+.node_repl_history
+.turbo/
+*.tsbuildinfo
+
+# Optional local package manager files
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Lavalink
+lavalink/*.jar
+lavalink/plugins/
+lavalink/logs/
+lavalink/*.log
+lavalink/data/
+*.jar
+
+# OS
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editors / IDEs
+.idea/
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Misc
+*.local
+*.bak
+*.tmp
+*.temp
