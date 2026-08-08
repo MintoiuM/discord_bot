@@ -18,7 +18,7 @@ module.exports = {
       return;
     }
 
-    if (queue.player?.paused) {
+    if (queue.paused) {
       await ctx.reply('Playback is already paused.');
       return;
     }

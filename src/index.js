@@ -1,9 +1,11 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, Partials } = require('discord.js');
-const { Shoukaku, Connectors } = require('shoukaku');
 const config = require('./config');
 const QueueManager = require('./music/QueueManager');
+
+// Make @discordjs/voice find ffmpeg from ffmpeg-static
+process.env.FFMPEG_PATH = require('ffmpeg-static');
 
 const client = new Client({
   intents: [
@@ -38,30 +40,5 @@ for (const file of fs.readdirSync(eventsPath).filter((f) => f.endsWith('.js'))) 
     client.on(event.name, (...args) => event.execute(...args, client));
   }
 }
-
-const shoukaku = new Shoukaku(new Connectors.DiscordJS(client), config.nodes, {
-  moveOnDisconnect: false,
-  reconnectTries: 5,
-  reconnectInterval: 5,
-  restTimeout: 60,
-});
-
-client.shoukaku = shoukaku;
-
-shoukaku.on('ready', (name) => {
-  console.log(`[lavalink] Node "${name}" is ready`);
-});
-
-shoukaku.on('error', (name, error) => {
-  console.error(`[lavalink] Node "${name}" error:`, error);
-});
-
-shoukaku.on('close', (name, code, reason) => {
-  console.warn(`[lavalink] Node "${name}" closed (${code}): ${reason || 'no reason'}`);
-});
-
-shoukaku.on('disconnect', (name, _count) => {
-  console.warn(`[lavalink] Node "${name}" disconnected`);
-});
 
 client.login(config.token);

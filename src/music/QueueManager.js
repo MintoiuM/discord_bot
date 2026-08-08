@@ -27,17 +27,10 @@ class QueueManager {
     return queue;
   }
 
-  getIdealNode() {
-    const node = this.client.shoukaku.getIdealNode();
-    if (!node) {
-      throw new Error('No Lavalink nodes are connected. Start Lavalink and restart the bot.');
-    }
-    return node;
-  }
-
   async resolve(query) {
-    const node = this.getIdealNode();
-    return resolveTracks(node, query);
+    return resolveTracks(query, {
+      maxPlaylistTracks: this.client.config.maxPlaylistTracks,
+    });
   }
 
   wrapTracks(tracks, requester) {

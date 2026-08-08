@@ -15,8 +15,6 @@ module.exports = {
     const queue = ctx.client.queues.get(ctx.guildId);
     if (queue) {
       await queue.stop();
-    } else {
-      await ctx.client.shoukaku.leaveVoiceChannel(ctx.guildId);
     }
 
     await ctx.reply('Left the voice channel.');

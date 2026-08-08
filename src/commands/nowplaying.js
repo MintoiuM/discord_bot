@@ -15,8 +15,7 @@ module.exports = {
     }
 
     const track = queue.current;
-    const position = queue.player?.position ?? 0;
-    const progress = `${formatDuration(position)} / ${formatDuration(track.info.length)}`;
+    const progress = `${formatDuration(queue.position)} / ${formatDuration(track.info.length)}`;
 
     const embed = new EmbedBuilder()
       .setColor(0x5865f2)
@@ -28,7 +27,7 @@ module.exports = {
         { name: 'Requested by', value: `<@${track.requester.id}>`, inline: true },
         { name: 'Loop', value: queue.loop, inline: true },
         { name: 'Volume', value: `${queue.volume}%`, inline: true },
-        { name: 'Paused', value: queue.player?.paused ? 'Yes' : 'No', inline: true },
+        { name: 'Paused', value: queue.paused ? 'Yes' : 'No', inline: true },
       );
 
     if (track.info.artworkUrl) {

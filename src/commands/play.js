@@ -11,7 +11,7 @@ module.exports = {
     .addStringOption((option) =>
       option
         .setName('query')
-        .setDescription('Song name, YouTube/SoundCloud URL, or scsearch:query')
+        .setDescription('Song name, URL, or sc:query for SoundCloud search')
         .setRequired(true),
     ),
   async execute(ctx) {
